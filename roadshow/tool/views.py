@@ -3,4 +3,5 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Hello world.  You're at the tools index.")
+    # Some code to get db info
+    return render(request, 'tool/index.html')
