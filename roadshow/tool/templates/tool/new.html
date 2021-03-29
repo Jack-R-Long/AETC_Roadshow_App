@@ -64,51 +64,30 @@
         <div class="container">
           <!-- Row One -->
           <div class="row align-items-start">
-              <!-- Column One -->
-              <div class="col">
-                  <!-- File Upload Button -->
-                  <div class="container text-center">
-                      <h5 class="text-center">Upload CSV</h5>
-                      <input class="btn btn-info" id="fileUpload" type="file" onchange="uploadCSV(this)"></input>
-                  </div>
-              </div>
-              <!-- Column Two -->
-              <div class="col">
-                  <!-- Convert Button -->
-                  <div class="container text-center">
-                      <h5 class="text-center">Convert to XML</h5>
-                      <button class="btn btn-info" id="btnConvert" onclick="CSVtoXML(tbCSV)">Convert</button>
-                  </div>
-              </div>
+
+            <!-- File Upload Button -->
+            <div class="container text-center">
+                <h5 class="text-center">Upload Course Data</h5>
+                <form enctype="multipart/form-data">
+                  <input class="btn btn-info" id="txtFileUpload" type="file"/>
+                </form>
+                <!-- <input class="btn btn-info" id="fileUpload" type="file" onchange="uploadCSV(this)"></input> -->
+            </div>
+
+            <!-- XML Output -->
+            <div class="container text-center mt-4">
+              <h5>Data</h5>
+              <textarea  class="form-control"id="xmlOut" rows="10"></textarea>
+            </div>
           </div>
+
           <!-- Row Two -->
-          <div class="row align-items-start">
-            <div class="col">
-              <!-- CSV Upload -->
-              <div class="container text-center mt-4">
-                <h5>CSV Input</h5>
-                <textarea class="form-control" id="tbCSV" rows="10">block_number,task_id,task_description
-                1,1,Identify organizational IA roles and responsibilities
-                1,2,Identify and implement implicit deny ACL rules
-                1,3,Calculate subnet ranges given subnet mask and addresses</textarea>
-              </div>
-            </div>
-            <div class="col">
-              <!-- XML Output -->
-              <div class="container text-center mt-4">
-                <h5>XML Output</h5>
-                <textarea  class="form-control"id="tbXML" rows="10"></textarea>
-              </div>
-            </div>
-          </div>
-          <!-- Row Three -->
           <div class="row align-items-start">
             <div class="container text-center mt-4">
               <h5>Upload to Database</h5>
               <button class="btn btn-danger" id="btnUpload" onclick="">Upload</button>
             </div>
           </div>
-        </div>
       </section>
 
       <div class="parallax">
@@ -164,10 +143,14 @@
 
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Jquery CSV-->
+    <script src="{% static '/tool/js/jquery.csv.min.js' %}"></script>
     <!-- Boostrap js -->
     <script src="{% static '/tool/js/bootstrap.min.js' %}"></script>
     <!-- Custom js -->
-    <script src="{% static '/tool/js/CSVtoXML.js' %}"></script>
+    <!-- <script src="{% static '/tool/js/CSVtoXML.js' %}"></script> -->
+    <!-- <script src="{% static '/tool/js/customjQuery.js' %}"></script> -->
+    <script src="{% static '/tool/js/newJQuery.js' %}"></script>
   
   </body>
 </html>

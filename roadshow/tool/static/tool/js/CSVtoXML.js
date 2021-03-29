@@ -1,11 +1,11 @@
 // Set default test values for now
-tbCSV.value = "block_number,task_id,task_description\n\
+tbCSV = "block_number,task_id,task_description\n\
 1,1,Identify organizational IA roles and responsibilities\n\
 1,2,Identify and implement implicit deny ACL rules\n\
 1,3,Calculate subnet ranges given subnet mask and addresses"
-
+tbXML = ""
 // funciton that parses CSV input to
-function CSVtoXML(csvData){
+function CSVtoXML(csvData = ""){
 	// start xml output with blank variable xml
   var xml = `<?xml version="1.0"?>\n<tasks>\n`;
 	// splits input CSV data values by lines, puts values into csvData
@@ -26,11 +26,11 @@ function CSVtoXML(csvData){
   }
   xml += `</tasks>`
 	tbXML.value = xml;
+  console.log(xml)
 }
 
 // function to upload CSV file directly to website
-function uploadCSV(input)
-{
+function uploadCSV(input){
   // uses file reader to read file and put value into XML text area
   let file = input.files[0];
   let reader = new FileReader();
@@ -43,6 +43,7 @@ function uploadCSV(input)
     return;
   };
   CSVtoXML(tbCSV);
+  console.log("Uploaded CSV data")
 }
 
 /* OLD DOWNLOAD FUNCTIONS, NEED TO BE REDONE
